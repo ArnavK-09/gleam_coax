@@ -2,7 +2,7 @@ import gleam/string.{trim}
 
 pub fn sidebar() -> String {
   "
-<aside class=\"sticky -ml-0.5 h-[calc(100vh-4.75rem)] w-64 overflow-y-auto overflow-x-hidden py-16 pl-0.5 pr-8 xl:w-72 xl:pr-16 hidden lg:block lg:relative text-base lg:text-sm\">
+<aside class=\"sticky basis-1/2 -ml-0.5 h-[calc(100vh-4.75rem)] w-64 overflow-y-auto overflow-x-hidden py-16 pl-0.5 xl:w-72 hidden lg:block lg:relative text-base\">
   <ul role=\"list\" class=\"space-y-9\">
     <li>
       <h2 class=\"font-display font-medium text-white\">Introduction</h2>
