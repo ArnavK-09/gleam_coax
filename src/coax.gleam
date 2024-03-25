@@ -17,8 +17,8 @@ pub const output_dir: String = "dist"
 /// Call to initialize your docs site
 pub fn init(dir dir: Option(String), name name: Option(String)) -> CoaxSite {
   types.CoaxSite(
-    dir: lazy_unwrap(dir, fn() { "docs" }), 
-    title: lazy_unwrap(name, fn() { "Coax Site" }), 
+    dir: lazy_unwrap(dir, fn() { "docs" }),
+    title: lazy_unwrap(name, fn() { "Coax Site" }),
   )
 }
 
@@ -31,19 +31,19 @@ pub fn use_component(
   let component_template = component()
   let user_props = dict.keys(props)
   let render = dict.from_list([#("html", component_template)])
-  
-  list.each(user_props, fn(prop){
+
+  list.each(user_props, fn(prop) {
     let assert Ok(value) = dict.get(props, prop)
     let assert Ok(tmpl) = dict.get(render, "html")
     let template = string.replace(tmpl, "{{" <> prop <> "}}", value)
     dict.insert(render, "html", template)
-  })  
-  
+  })
   let assert Ok(final_render) = dict.get(render, "html")
   final_render
 }
 
 /// Coverts markdown content to html
+@external(javascript, "./bridge_ffi.mjs", "convert_md_to_html")
 fn convert_md_to_html(content: String) -> String {
   html_renderer.convert(content)
 }
@@ -51,7 +51,7 @@ fn convert_md_to_html(content: String) -> String {
 /// Processes markdown file to meet coax docs theme
 fn process_content(content: String, site: CoaxSite) {
   let inner_html = convert_md_to_html(content)
-
+  
   coax_layout(site)
   |> string.replace("{{children}}", inner_html)
 }
@@ -71,7 +71,8 @@ fn process_route(route: String, site: CoaxSite) {
   let _ = simplifile.create_directory_all(folder_name)
 
   // Writing Data 
-  let _ = simplifile.write(process_content(content, site), to: output_file_route)
+  let _ =
+    simplifile.write(process_content(content, site), to: output_file_route)
 }
 
 /// Clears previous out_dir (if exists)
