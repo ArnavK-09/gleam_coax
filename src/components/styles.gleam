@@ -12,8 +12,8 @@ body {
 }
 
 hr {
-  margin-top: 1rem;
-  margin-bottom: 1rem;
+  margin-top: 0.5rem !important;
+  margin-bottom: 0.5rem !important;
   margin-left: 1rem;
   margin-right: 1rem;
   border-style: none;
@@ -31,12 +31,11 @@ main a {
   text-underline-offset: 0.5px;
   font-weight: 550;
   text-decoration: underline;
-  text-decoration-style: wavy;
 
   &:hover {
     color: #0ea5e9;
   }
 }
 "
-|> trim
+  |> trim
 }

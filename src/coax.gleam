@@ -51,7 +51,7 @@ fn convert_md_to_html(content: String) -> String {
 /// Processes markdown file to meet coax docs theme
 fn process_content(content: String, site: CoaxSite) {
   let inner_html = convert_md_to_html(content)
-  
+
   coax_layout(site)
   |> string.replace("{{children}}", inner_html)
 }

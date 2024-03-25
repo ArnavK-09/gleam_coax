@@ -1,6 +1,4 @@
-pub fn docs_contents() ->  String {
-
+pub fn docs_contents() -> String {
+  "
 "
-"
-
 }

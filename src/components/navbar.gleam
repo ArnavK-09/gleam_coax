@@ -1,7 +1,7 @@
 import gleam/string.{trim}
 
 pub fn coax_navbar() -> String {
-"
+  "
 <nav
   class=\"shadow-xl shadow-slate-900  sticky top-0 z-50 flex flex-none flex-wrap items-center justify-between bg-transparent backdrop-blur-md px-4 py-5 sm:px-6 lg:px-8\"
 >

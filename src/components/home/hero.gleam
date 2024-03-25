@@ -1,5 +1,5 @@
-pub fn hero() -> String{
-"
+pub fn hero() -> String {
+  "
 <section id=\"hero\">
   <div
     class=\"container mx-auto flex flex-col items-center justify-center px-5 py-24\"

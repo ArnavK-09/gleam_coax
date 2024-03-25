@@ -1,6 +1,4 @@
-pub fn home_card() ->  String {
-
+pub fn home_card() -> String {
+  "
 "
-"
-
 }
