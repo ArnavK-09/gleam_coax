@@ -1,0 +1,26 @@
+name: Deploy demo site
+
+on:
+  push:
+    branches: ["*"]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+        node-version: 18
+      - uses: erlef/setup-beam@v1
+        with:
+          otp-version: "26.0.2"
+          gleam-version: "1.0.0-rc2"
+          rebar3-version: "3"
+      - run: gleam deps download
+      - run: gleam test
+      - run: gleam format --check src test
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: dist
