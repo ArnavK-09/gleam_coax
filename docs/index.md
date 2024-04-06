@@ -1,3 +1,6 @@
+
+![img](https://picsum.photos/200)
+
 # Markdown: Syntax
 
 *   [Overview](#overview)
